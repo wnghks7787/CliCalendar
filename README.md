@@ -19,6 +19,11 @@ How to use
 ----------
 You can see this menu option when you execute calendar program.
 ![Alt text](https://user-images.githubusercontent.com/74361097/173158513-0f4aaff6-b582-42c1-ba8f-f389877a46e0.png)
+Let's see each number command!
+
+1. Show today's calendar and todo-list
+* It just show today's calendar! If today is June 2022, it will show June 2022 calendar.
+![Alt text](https://user-images.githubusercontent.com/74361097/173159081-2301a789-5098-42fb-bea7-3849e74616bf.png)
 
 Support
 -------
