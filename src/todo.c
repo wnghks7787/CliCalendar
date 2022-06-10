@@ -3,24 +3,23 @@
 #include "todo.h"
 
 #define FIRSTLINE "TODO_LIST"
+#define FILENAME ".list.csv"
 
 int todo_show(int year, int month)
 {
     FILE *list;
 
-    // char* first_line = "TODO_LIST";
     char check[64];
 
-    list = fopen(".list.csv", "r");
+    list = fopen(FILENAME, "r");
     if((list == NULL) || fgetc(list) == EOF)
     {
         todoLine(list);
         return 0;
     }
 
+    printf("<TODO LIST IN %d_%d>\n", year, month);
     check_date(list, year, month);
-
-    printf("file open!\n");
 
     fclose(list);
 
@@ -32,18 +31,28 @@ void todo_make(int year, int month)
 {
     FILE *list;
 
-    list = fopen(".list.csv", "r");
+    list = fopen(FILENAME, "r");
     if((list == NULL) || fgetc(list) == EOF)
         todoLine(list);
+    else if(fgetc(list) == EOF)
+    {
+        todoLine(list);
+        fclose(list);
+    }
 
-    fclose(list);
+    list = fopen(FILENAME, "a");
 
-    fopen(".list.csv", "a");
-
+    fputc('\n', list);
     printf("Enter what you want to write : ");
     makeTodo(list, year, month);
 
-    printf("OPEN!!\n");
+    printf("Save!!\n");
 
     fclose(list);
+}
+
+void todo_init()
+{
+    FILE* list;
+    todoLine(list);
 }

@@ -14,15 +14,8 @@ void check_date(FILE *fp, int year, int month)
     char* split;
     int todo = 0;
 
-    // char yearC[5];
-    // char monthC[3];
-
     int yearI;
     int monthI;
-
-    // sprintf(yearC, "%d", year);
-    // sprintf(monthC, "%d", month);
-
     int count = 0;
 
     char* ln = (char*)malloc(sizeof(char) * line);
@@ -31,71 +24,48 @@ void check_date(FILE *fp, int year, int month)
     while(!feof(fp))
     {
         fgets(ln, LEN, fp);
-        // if(feof(fp))
-        //     break;
 
         split = strtok(ln, ",");
         yearI = atoi(split);
-        // if(strcmp(split, yearC) == 0)
+
         if(yearI == year)
         {
             split = strtok(NULL, ",");
             monthI = atoi(split);
-            // if(strcmp(split, monthC) == 0)
+
             if(monthI == month)
             {
+                count++;
                 split = strtok(NULL, ",");
-                printf("%s\n", split);
+                printf("%d. %s", count, split);
             }
         }
-
-        // if(strcmp(split, yearC) == 0)
-        // {
-        //     printf("same1\n");
-        //     while(split != NULL)
-        //     {
-        //         if(todo >= 2)
-        //         {
-        //             printf("%s\n", split);
-        //             break;
-        //         }
-
-        //         split = strtok(NULL, ",");
-        //         todo++;
-        //     }
-        //     todo = 0;
-        //     printf("count : %d\n", count);
-        //     count++;
-        // }
     }
+
+    if(count == 0)
+        printf("\nThere is no list in this month!\n");
 }
 
 void makeTodo(FILE* fp, int year, int month)
 {
     int len;
     char input[LEN];
-    char yearC[5];
-    char monthC[3];
+    // char yearC[5];
+    // char monthC[3];
     // char year_month[50];
 
-    sprintf(yearC, "%d", year);
-    sprintf(monthC, "%d", month);
+    // sprintf(yearC, "%d", year);
+    // sprintf(monthC, "%d", month);
 
-    getchar();
+    // getchar();
     fgets(input, LEN, stdin);
     len = strlen(input);
 
-    input[len - 1] = 0;
+    input[len - 1] = '\0';
 
-    // printf("%s, %s\n", yearC, monthC);
-    fputc('\n', fp);
-    fputs(yearC, fp);
-    fputc(',', fp);
-    if(month < 10)
-        fputc('0', fp);
-    fputs(monthC, fp);
-    fputc(',', fp);
-    fputs(input, fp);
+    fprintf(fp, "%d,%02d,%s", year, month, input);
+    // fprintf(fp, "\n%d,%02d,", year, month);
+    // fprintf(fp, "%s", input);
 }
 
 void todoLine(FILE* list)
@@ -105,4 +75,6 @@ void todoLine(FILE* list)
     list = fopen(".list.csv", "w");
     fputs(FIRSTLINE, list);
     fputc('\n', list);
+
+    fclose(list);
 }
