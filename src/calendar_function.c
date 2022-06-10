@@ -87,7 +87,6 @@ int daycount(int year, int month) // 각 달별로 일 수 확인. 만약 일 �
 int weekcal(int year, int month) // 날짜 계산
 {
     int week;
-    int weektab;
 
     week = (year - 1922) * 365 + (month - 1) * 30;
     
@@ -107,12 +106,10 @@ int weekcal(int year, int month) // 날짜 계산
         week++;
     if(year >= 1924)            // 윤년 계산
     {
-        for(int i=1 ; i <= floor(year / 4) -480 ; i++)
-        {
-        week++;
-        }
+        for(int i = 1 ; i <= floor(year / 4) - 480 ; i++)
+            week++;
         if(year % 4 == 0 && month <= 2)     // 윤년 1월은 하루를 빼야 정확한 날짜 계산이 맞음
-        week--;
+            week--;
     }
     week = week % 7;
 
