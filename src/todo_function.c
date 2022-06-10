@@ -38,10 +38,29 @@ void check_date(FILE *fp, int year, int month)
 
 void makeTodo(FILE* fp, int year, int month)
 {
-    char* input;
-    fgets(input, LEN, stdin);
+    int len;
+    char input[LEN];
+    char yearC[5];
+    char monthC[3];
+    // char year_month[50];
 
+    sprintf(yearC, "%d", year);
+    sprintf(monthC, "%d", month);
+
+    getchar();
+    fgets(input, LEN, stdin);
+    len = strlen(input);
+
+    input[len - 1] = 0;
+
+    // printf("%s, %s\n", yearC, monthC);
     fputc('\n', fp);
+    fputs(yearC, fp);
+    fputc(',', fp);
+    if(month < 10)
+        fputc('0', fp);
+    fputs(monthC, fp);
+    fputc(',', fp);
     fputs(input, fp);
 }
 
@@ -51,4 +70,5 @@ void todoLine(FILE* list)
 
     list = fopen(".list.csv", "w");
     fputs(FIRSTLINE, list);
+    fputc('\n', list);
 }

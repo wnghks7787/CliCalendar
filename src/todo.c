@@ -32,13 +32,18 @@ void todo_make(int year, int month)
 {
     FILE *list;
 
-    list = fopen("list.csv", "a");
-
+    list = fopen(".list.csv", "r");
     if((list == NULL) || fgetc(list) == EOF)
-        fputs(FIRSTLINE, list);
+        todoLine(list);
+
+    fclose(list);
+
+    fopen(".list.csv", "a");
 
     printf("Enter what you want to write : ");
     makeTodo(list, year, month);
+
+    printf("OPEN!!\n");
 
     fclose(list);
 }
