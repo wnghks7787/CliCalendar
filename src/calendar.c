@@ -1,23 +1,18 @@
 #include <stdio.h>
 #include "calendar.h"
 
-int main()
+void calendar(int year, int month)
 {
-    int year, month;
     int day = 1;
-    int t;                    // tab
+    int t = 0;                    // tab
     int weektab;
     int dayall;               // 해당하는 달의 총 일수
     int week;
 
-
-    printf("Year and Month : ");
-    scanf("%d %d", &year, &month);      // 변수 입력
-
     if(!(month >= 1 && month <= 12))
     {
-        printf("ERROR\n");
-        return 0;
+        printf("Please enter right month\n");
+        return;
     }
 
     printf("%d ", year);
@@ -37,8 +32,8 @@ int main()
     {
         while(t < weektab)               // week 만큼 tab
         {
-        printf("\t");
-        t++;
+            printf("\t");
+            t++;
         }
         printf("%-3d\t", day);
 
@@ -46,6 +41,4 @@ int main()
         printf("\n");
     }
     printf("\n");
-
-    return 0;
 }
