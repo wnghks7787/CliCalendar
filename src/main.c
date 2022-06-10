@@ -18,7 +18,7 @@ int main()
     {
         printSelect();
 
-        printf("Insert your active: ");
+        printf("\nInsert your active: ");
         scanf("%d", &select);
 
         switch(select)
@@ -31,19 +31,44 @@ int main()
             case CALENDAR:
                 printf("Year and month : ");
                 scanf("%d %d", &year, &month);
+                if(month > 12 || month < 1)
+                {
+                    printf("Enter right month!\n");
+                    break;
+                }
                 calendar(year, month);
+                printf("\n");
+                todo_show(year, month);
                 break;
 
             case MAKE_TODO_LIST:
                 printf("Year and month : ");
                 scanf("%d %d", &year, &month);
+                getchar();
+                if(month > 12 || month < 1)
+                {
+                    printf("Enter right month!\n");
+                    break;
+                }
+                printf("\n");
                 todo_make(year, month);
                 break;
             
             case SHOW_TODO_LIST:
                 printf("Year and month : ");
                 scanf("%d %d", &year, &month);
+                if(month > 12 || month < 1)
+                {
+                    printf("Enter right month!\n");
+                    break;
+                }
+                printf("\n");
                 todo_show(year, month);
+                break;
+
+            case TODO_INIT:
+                todo_init();
+                printf("Initialize complete!\n");
                 break;
             
             case EXIT:
@@ -63,9 +88,12 @@ int main()
 
 void printSelect()
 {
+    printf("\n");
+    printf("\t\t <CLI CALENDAR>\n");
     printf("\t 1. Show Today's calendar and Todo-list.\n");
     printf("\t 2. Show calendar where you want.\n");
     printf("\t 3. Make Todo-list\n");
     printf("\t 4. Show Todo-list where you want.\n");
-    printf("\t 5. EXIT\n");
+    printf("\t 5. Initialize Todo-list\n");
+    printf("\t 6. EXIT\n");
 }
