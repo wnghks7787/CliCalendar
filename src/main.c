@@ -20,6 +20,7 @@ int main()
 
         printf("\nInsert your active: ");
         scanf("%d", &select);
+        printf("\n\n");
 
         switch(select)
         {
