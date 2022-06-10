@@ -1,13 +1,15 @@
-CalendarInLine
-==============
+TERMINAL CALENDAR TODOLIST
+==========================
 
-Welcome to CLI! CLI is Calendar In Line.   
-You can freely to use it. Thanks.
+Welcome to TCT! TCT is Terminal Calendar Todolist!
+You can freely to use it.
 
-How to use
-----------
-If you have gcc compiler, just download Calendar.c file and compile it.   
-Or you cna just download CliCalendar and put in your path location.   
+Get start
+---------
+If you have gcc compiler, you can clone this repository and enter 'make' command to make executable file.
+    $make
+
+It will automatically make executable file named 'calendar'
 
 Support
 -------
