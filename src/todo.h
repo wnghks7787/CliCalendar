@@ -3,4 +3,8 @@
 
 void check_date(FILE *fp, int year, int month);
 
+void makeTodo(FILE* fp, int year, int month);
+
+void todoLine(FILE* list);
+
 #endif

@@ -2,6 +2,8 @@
 #include <stdlib.h>
 #include <string.h>
 
+#define FIRSTLINE "TODO_LIST"
+
 #define LEN 65536
 
 void check_date(FILE *fp, int year, int month)
@@ -11,15 +13,6 @@ void check_date(FILE *fp, int year, int month)
     char c;
     char* split;
     int todo = 0;
-    // char* ln;
-
-    // while(fgetc(fp) != EOF)
-    // {
-    //     if(c == '\n')
-    //         line++;
-    // }
-
-    // fseek(fp, 0, SEEK_SET);
 
     char* ln = (char*)malloc(sizeof(char) * line);
     
@@ -41,4 +34,21 @@ void check_date(FILE *fp, int year, int month)
         }
         todo = 0;
     }
+}
+
+void makeTodo(FILE* fp, int year, int month)
+{
+    char* input;
+    fgets(input, LEN, stdin);
+
+    fputc('\n', fp);
+    fputs(input, fp);
+}
+
+void todoLine(FILE* list)
+{
+    printf("\nTODO LIST : EMPTY\n");
+
+    list = fopen(".list.csv", "w");
+    fputs(FIRSTLINE, list);
 }
