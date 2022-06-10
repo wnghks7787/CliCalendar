@@ -4,9 +4,10 @@ TERMINAL CALENDAR TODOLIST
 Welcome to TCT! TCT is Terminal Calendar Todolist!
 You can freely to use it.
 
-Get start
----------
+Get started
+-----------
 If you have gcc compiler, you can clone this repository and enter 'make' command to make executable file.
+
     $make
 
 It will automatically make executable file named 'calendar'
