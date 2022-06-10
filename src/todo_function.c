@@ -50,22 +50,13 @@ void makeTodo(FILE* fp, int year, int month)
 {
     int len;
     char input[LEN];
-    // char yearC[5];
-    // char monthC[3];
-    // char year_month[50];
 
-    // sprintf(yearC, "%d", year);
-    // sprintf(monthC, "%d", month);
-
-    // getchar();
     fgets(input, LEN, stdin);
     len = strlen(input);
 
     input[len - 1] = '\0';
 
     fprintf(fp, "%d,%02d,%s", year, month, input);
-    // fprintf(fp, "\n%d,%02d,", year, month);
-    // fprintf(fp, "%s", input);
 }
 
 void todoLine(FILE* list)
