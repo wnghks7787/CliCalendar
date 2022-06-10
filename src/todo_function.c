@@ -14,25 +14,59 @@ void check_date(FILE *fp, int year, int month)
     char* split;
     int todo = 0;
 
+    // char yearC[5];
+    // char monthC[3];
+
+    int yearI;
+    int monthI;
+
+    // sprintf(yearC, "%d", year);
+    // sprintf(monthC, "%d", month);
+
+    int count = 0;
+
     char* ln = (char*)malloc(sizeof(char) * line);
     
-    for(;;)
+    fseek(fp, 0, SEEK_SET);
+    while(!feof(fp))
     {
         fgets(ln, LEN, fp);
-        if(feof(fp))
-            break;
+        // if(feof(fp))
+        //     break;
 
         split = strtok(ln, ",");
-
-        while(split != NULL)
+        yearI = atoi(split);
+        // if(strcmp(split, yearC) == 0)
+        if(yearI == year)
         {
-            if(todo >= 2)
-                printf("%s\n", split);
-
             split = strtok(NULL, ",");
-            todo++;
+            monthI = atoi(split);
+            // if(strcmp(split, monthC) == 0)
+            if(monthI == month)
+            {
+                split = strtok(NULL, ",");
+                printf("%s\n", split);
+            }
         }
-        todo = 0;
+
+        // if(strcmp(split, yearC) == 0)
+        // {
+        //     printf("same1\n");
+        //     while(split != NULL)
+        //     {
+        //         if(todo >= 2)
+        //         {
+        //             printf("%s\n", split);
+        //             break;
+        //         }
+
+        //         split = strtok(NULL, ",");
+        //         todo++;
+        //     }
+        //     todo = 0;
+        //     printf("count : %d\n", count);
+        //     count++;
+        // }
     }
 }
 
