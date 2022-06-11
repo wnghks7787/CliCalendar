@@ -71,8 +71,9 @@ Let's see each number command!
 
 Youtube link
 ------------
-I will upload soon! Thank you for your supporting.
+Youtube Link : [Click here][link]
 
+[link]: https://youtu.be/LBuIdKtwEX0
 Support
 -------
 If you have any problem? Send me E-mail to get support(21900616@handong.ac.kr)   
