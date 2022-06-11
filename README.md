@@ -63,11 +63,11 @@ Let's see each number command!
     * If you want to make every list throw away? Just use this command!(Warning! This command cannot be return!)
 
     ![Alt text](https://user-images.githubusercontent.com/74361097/173160526-3b7da044-180d-4d71-b94b-4faaa849b728.png)
-    
+
     * It doesn't delete .csv file. If you want to remove, you will remove it menually.
 
 6. Exit
-    * This command will you go back to your life!
+    * This command will take you to go back to your life!
 
 Youtube link
 ------------
